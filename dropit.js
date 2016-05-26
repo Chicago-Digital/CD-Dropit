@@ -1,12 +1,3 @@
-/*
- * Dropit v1.1.0
- * http://dev7studios.com/dropit
- *
- * Copyright 2012, Dev7studios
- * Free to use and abuse under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- */
-
 ;(function($) {
 
     $.fn.dropit = function(method) {
@@ -52,13 +43,13 @@
                     $(document).on('click', function(e){
                         settings.beforeHide.call(this);
 						if (settings.closeOnClick) {
-							$('.dropit-open').removeClass('dropit-open');
+							$el.find('.dropit-open').removeClass('dropit-open');
 						}
 						else {
 							if(!e) e = window.event;
 							var target = e.target || e.srcElement;
 							if (!$(target).closest($el.find(settings.submenuEl)).length) {
-								$('.dropit-open').removeClass('dropit-open');
+								$el.find('.dropit-open').removeClass('dropit-open');
 							}
 						}
                         settings.afterHide.call(this);
