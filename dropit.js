@@ -69,13 +69,13 @@
                         $el.on('mouseleave', '.dropit-open', function(){
                             settings.beforeHide.call(this);
 							if (settings.closeOnClick) {
-								$('.dropit-open').removeClass('dropit-open');
+								$el.find('.dropit-open').removeClass('dropit-open');
 							}
 							else {
 								if(!e) e = window.event;
 								var target = e.target || e.srcElement;
 								if (!$(target).closest($el.find(settings.submenuEl)).length) {
-									$('.dropit-open').removeClass('dropit-open');
+									$el.find('.dropit-open').removeClass('dropit-open');
 								}
 							}
                             settings.afterHide.call(this);
