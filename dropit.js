@@ -23,35 +23,39 @@
                     // Hide initial submenus
                     $el.addClass('dropit')
                     .find('>'+ settings.triggerParentEl +':has('+ settings.submenuEl +')').addClass('dropit-trigger')
-                    .find(settings.submenuEl).addClass('dropit-submenu').hide();
+                    .find(settings.submenuEl).addClass('dropit-submenu');
 
                     // Open on click
                     $el.off(settings.action).on(settings.action, settings.triggerParentEl +':has('+ settings.submenuEl +') > '+ settings.triggerEl +'', function(){
                         // Close click menu's if clicked again
                         if(settings.action == 'click' && $(this).parents(settings.triggerParentEl).hasClass('dropit-open')){
                             settings.beforeHide.call(this);
-                            $(this).parents(settings.triggerParentEl).removeClass('dropit-open').find(settings.submenuEl).hide();
+                            $(this).parents(settings.triggerParentEl).removeClass('dropit-open');
                             settings.afterHide.call(this);
                             return false;
                         }
 
                         // Hide open menus
                         settings.beforeHide.call(this);
-                        $('.dropit-open').removeClass('dropit-open').find('.dropit-submenu').hide();
+                        $('.dropit-open').removeClass('dropit-open');
                         settings.afterHide.call(this);
 
                         // Open this menu
                         settings.beforeShow.call(this);
-                        $(this).parents(settings.triggerParentEl).addClass('dropit-open').find(settings.submenuEl).show();
+                        $(this).parents(settings.triggerParentEl).addClass('dropit-open');
                         settings.afterShow.call(this);
 
                         return false;
                     });
 
                     // Close if outside click
-                    $(document).on('click', function(){
+                    $(document).on('click', function(e){
                         settings.beforeHide.call(this);
-                        $('.dropit-open').removeClass('dropit-open').find('.dropit-submenu').hide();
+						if(!e) e = window.event;
+						var target = e.target || e.srcElement;
+						if (!$(target).closest($el.find(settings.submenuEl)).length) {
+                        	$('.dropit-open').removeClass('dropit-open');
+						}
                         settings.afterHide.call(this);
                     });
 
@@ -59,7 +63,7 @@
                     if(settings.action == 'mouseenter'){
                         $el.on('mouseleave', '.dropit-open', function(){
                             settings.beforeHide.call(this);
-                            $(this).removeClass('dropit-open').find(settings.submenuEl).hide();
+                            $(this).removeClass('dropit-open');
                             settings.afterHide.call(this);
                         });
                     }
