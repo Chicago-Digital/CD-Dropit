@@ -51,10 +51,15 @@
                     // Close if outside click
                     $(document).on('click', function(e){
                         settings.beforeHide.call(this);
-						if(!e) e = window.event;
-						var target = e.target || e.srcElement;
-						if (!$(target).closest($el.find(settings.submenuEl)).length) {
-                        	$('.dropit-open').removeClass('dropit-open');
+						if (settings.closeOnClick) {
+							$('.dropit-open').removeClass('dropit-open');
+						}
+						else {
+							if(!e) e = window.event;
+							var target = e.target || e.srcElement;
+							if (!$(target).closest($el.find(settings.submenuEl)).length) {
+								$('.dropit-open').removeClass('dropit-open');
+							}
 						}
                         settings.afterHide.call(this);
                     });
@@ -63,11 +68,19 @@
                     if(settings.action == 'mouseenter'){
                         $el.on('mouseleave', '.dropit-open', function(){
                             settings.beforeHide.call(this);
-                            $(this).removeClass('dropit-open');
+							if (settings.closeOnClick) {
+								$('.dropit-open').removeClass('dropit-open');
+							}
+							else {
+								if(!e) e = window.event;
+								var target = e.target || e.srcElement;
+								if (!$(target).closest($el.find(settings.submenuEl)).length) {
+									$('.dropit-open').removeClass('dropit-open');
+								}
+							}
                             settings.afterHide.call(this);
                         });
                     }
-
                     settings.afterLoad.call(this);
                 });
             }
@@ -89,6 +102,7 @@
         submenuEl: 'ul', // The submenu element
         triggerEl: 'a', // The trigger element
         triggerParentEl: 'li', // The trigger parent element
+		closeOnClick: false, // Close submenu on click inside
         afterLoad: function(){}, // Triggers when plugin has loaded
         beforeShow: function(){}, // Triggers before submenu is shown
         afterShow: function(){}, // Triggers after submenu is shown
