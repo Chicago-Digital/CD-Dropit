@@ -3,7 +3,7 @@ Based Off Plugin: Stupidly Simple jQuery Dropdowns - http://dev7studios.com/drop
 Updated to allow users to click in dropdown menu for use cases where need toggle items within menu
 
     <div class="dropit">
-      <div class="dropit-parent"> <span class="dropdown-select">Filter by Event Type</span>
+      <div class="dropit-parent"> <span class="dropit-select">Filter by Event Type</span>
         <ul class="dropit-submenu">
           <li class="label-purple active"><a href="#">Middle School</a></li>
           <li class="label-gold active"><a href="#">High School</a></li>
@@ -21,7 +21,7 @@ Updated to allow users to click in dropdown menu for use cases where need toggle
     $('.dropit').dropit({
     	action: 'click', // The open action for the trigger
     	submenuEl: 'ul', // The submenu element
-    	triggerEl: '.dropdown-select', // The trigger element
+    	triggerEl: '.dropit-select', // The trigger element
     	triggerParentEl: '.dropit-parent', // The trigger parent element
     	closeOnClick: false // close sub menu on click
     });
