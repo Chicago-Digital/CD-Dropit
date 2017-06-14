@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo Dropit</title>
+    <style>
+    .demo {
+        width: 400px;
+        margin: 40px auto 0;
+    }
+    </style>
+    <link href="dropit.css" type="text/css" rel="stylesheet" media="screen" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="dropit.js"></script>
+</head>
+
+<body>
+    <div class="demo">
+        <h1>Dropit Demo</h1>
+        <div class="dropit">
+            <div class="dropit-parent"> <span class="dropit-select">Filter by Event Type</span>
+                <ul class="dropit-submenu">
+                    <li class="dropit-option"><a href="#">Middle School</a></li>
+                    <li class="dropit-option"><a href="#">High School</a></li>
+                    <li class="dropit-option"><a href="#">Women's</a></li>
+                    <li class="dropit-option"><a href="#">Men's</a></li>
+                    <li class="dropit-option"><a href="#">Children's</a></li>
+                </ul>
+            </div>
+        </div>
+        <h2>Multiple Drop It's</h2>
+        <div class="dropit">
+            <div class="dropit-parent"> <span class="dropit-select">Filter by Color</span>
+                <ul class="dropit-submenu">
+                    <li class="dropit-option"><a href="#">Red</a></li>
+                    <li class="dropit-option"><a href="#">Blue</a></li>
+                    <li class="dropit-option"><a href="#">Green</a></li>
+                    <li class="dropit-option"><a href="#">Black</a></li>
+                    <li class="dropit-option"><a href="#">White</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+    $('.dropit').dropit({
+        action: 'click', // The open action for the trigger
+        submenuEl: 'ul', // The submenu element
+        triggerEl: '.dropit-select', // The trigger element
+        triggerParentEl: '.dropit-parent', // The trigger parent element
+        setActiveOption: true,
+        closeOnClick: true, // Close submenu on click inside
+        afterLoad: function(element) {
+        }, // Triggers when plugin has loaded
+        beforeShow: function(element) {
+        }, // Triggers before submenu is shown
+        afterShow: function(element) {
+        }, // Triggers after submenu is shown
+        beforeHide: function(element) {
+        }, // Triggers before submenu is hidden
+        afterHide: function(element) {
+        } // Triggers before submenu is hidden
+    });
+    </script>
+</body>
+
+</html>
