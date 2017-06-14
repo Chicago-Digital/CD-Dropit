@@ -1,3 +1,5 @@
+// CD Dropit v1.1
+
 ;
 (function($) {
 
