@@ -110,8 +110,8 @@
         submenuEl: 'ul', // The submenu element
         triggerEl: '.dropit-select', // The trigger element
         triggerParentEl: '.dropit-parent', // The trigger parent element
-        OptionEl: '.dropit-option',
-        setActiveOption: false,
+        OptionEl: '.dropit-option', // Active Option Selector
+        setActiveOption: false, // Set Active Option Class and Override Selected Label
         closeOnClick: false, // Close submenu on click inside
         afterLoad: function() {}, // Triggers when plugin has loaded
         beforeShow: function() {}, // Triggers before submenu is shown
